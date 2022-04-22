@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-export default function Status404(location) {
+export default function Status404({ location }) {
   return (
     <Layout>
       <Seo pagetitle=" ページが見つかりません" pagepath={location.pathname}/>
