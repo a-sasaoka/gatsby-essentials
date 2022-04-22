@@ -6,6 +6,12 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `ESSENTIALS`,
+    description: ` おいしい食材と食事を探求するサイト`,
+    lang: `ja`,
+    siteUrl: `https://statuesque-speculoos-a8b61f.netlify.app/`,
+  },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
@@ -17,5 +23,6 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
+    `gatsby-plugin-react-helmet`,
   ],
 }
