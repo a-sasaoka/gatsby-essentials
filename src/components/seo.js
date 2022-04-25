@@ -2,7 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-export default function Seo(props) {
+const Seo = props => {
   const data = useStaticQuery(graphql`
     query MyQuery {
       site {
@@ -16,17 +16,23 @@ export default function Seo(props) {
     }
   `)
 
-  const title = props.pagetitle ? `${props.pagetitle} | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title
+  const title = props.pagetitle
+    ? `${props.pagetitle} | ${data.site.siteMetadata.title}`
+    : data.site.siteMetadata.title
   const description = props.pagedesc || data.site.siteMetadata.description
-  const url = props.pagepath ? `${data.site.siteMetadata.siteUrl}${props.pagepath}` : data.site.siteMetadata.siteUrl
+  const url = props.pagepath
+    ? `${data.site.siteMetadata.siteUrl}${props.pagepath}`
+    : data.site.siteMetadata.siteUrl
 
   return (
     <Helmet>
-      <html lang={data.site.siteMetadata.lang}/>
+      <html lang={data.site.siteMetadata.lang} />
       <title>{title}</title>
-      <meta name="description" content={description}/>
+      <meta name="description" content={description} />
 
       <link rel="canonical" href={url} />
     </Helmet>
   )
 }
+
+export default Seo

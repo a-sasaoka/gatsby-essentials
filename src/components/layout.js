@@ -9,12 +9,14 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 
 config.autoAddCss = false
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   return (
     <div>
-      <Header/>
+      <Header />
       {children}
-      <Footer/>
+      <Footer />
     </div>
   )
 }
+
+export default Layout
