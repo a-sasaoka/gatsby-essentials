@@ -11,6 +11,8 @@ module.exports = {
     description: ` おいしい食材と食事を探求するサイト`,
     lang: `ja`,
     siteUrl: `https://statuesque-speculoos-a8b61f.netlify.app/`,
+    locale: `ja_JP`,
+    fbappid: `XXXXXXXXXXXXXXXXXXXXX`,
   },
   plugins: [
     `gatsby-plugin-image`,

@@ -2,17 +2,35 @@ import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUtensils, faCheckSquare } from "@fortawesome/free-solid-svg-icons"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const About = ({ location }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "about.jpg" }) {
+        childImageSharp {
+          original {
+            height
+            src
+            width
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Layout>
       <Seo
         pagetitle="ESSENTIALS について"
         pagedesc=" 食べ物についての情報を発信しているサイトです。"
         pagepath={location.pathname}
+        pageimg={data.file.childImageSharp.original.src}
+        pageimgw={data.file.childImageSharp.original.width}
+        pageimgh={data.file.childImageSharp.original.height}
       />
       <div>
         <div className="eyecatch">
